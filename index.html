@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+
+</head>
+<body>
+    <h2 class="text-sky-900 text-4xl">hyyy</h2>
+    <video  id="vdo" autoplay ></video>
+    <button class="b1">camera</button>
+    <button class="b2">close</button>
+    
+</body>
+<script>
+ let    vdo = document.getElementById('vdo');
+ vdo.style.display = "none";
+ let   btn =  document.querySelector('.b1');
+ let   btn2 =  document.querySelector('.b2');
+
+ let fn = async ()=>{
+    let stream = await navigator.mediaDevices.getUserMedia({
+        video:true
+    });
+    vdo.srcObject = stream;
+ }
+
+
+
+
+ btn.addEventListener('click',()=>{
+    
+vdo.style.display = "block";
+fn();
+ })
+
+
+ btn2.addEventListener('click',()=>{
+vdo.style.display = "none";
+
+ })
+
+</script>
+</html>
